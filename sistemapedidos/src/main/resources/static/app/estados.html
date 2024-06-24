@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Curso ITILH</title>
+    <link rel="stylesheet" href="estilos/estados.css">
+</head>
+<body>
+    <header>
+        <h1>Sistema de Pedidos</h1>
+    </header>
+    <nav>
+        <a href="http://localhost:8080/app/index.html">Home</a>
+        <a href="http://localhost:8080/app/municipios.html">Municípios</a>
+        <a href="http://localhost:8080/app/Clientes.html">Clientes</a>
+        <a href="http://localhost:8080/app/Produtos.html">Produtos</a>
+    </nav>
+
+    <h2>Listagem de Estados</h2>
+    <form>
+        <label>ID: </label>
+        <input type="text" id="tx_id" disabled="disabled"
+        readonly="readonly"/>
+        <br>
+        <Label>NOME: </Label>
+        <input type="text" id="tx_nome"/>
+        <br>
+        <button type="button" onclick="criar()" class="formulario">Criar</button>
+        <button type="button" onclick="alterar()" class="formulario">Alterar</button>
+        <button type="button" onclick="limpar()" class="formulario">Limpar</button>
+        <button type="button" onclick="carregar()" class="formulario">Listar</button>
+    </form>
+    <br>
+    <table id="Listagem"></table>
+
+</body>
+
+<script>
+    function criar() {
+        console.log("Criar");
+        //alert("Novo estado");
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function() {
+            if(this.readyState == 4 && this.status==200) {
+                alert("Estado criado com sucesso");
+                carregar();
+            }
+        }
+        xhttp.open("POST", "/estado");
+        xhttp.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+        xhttp.send(JSON.stringify({id:null, nome: document.getElementById("tx_nome").value}));
+    }
+
+    function preencher(id_estado, nome_estado) {
+        console.log(id_estado, nome_estado);
+        document.getElementById("tx_id").value = id_estado;
+        document.getElementById("tx_nome").value = nome_estado;
+        document.getElementById("tx_nome").value = decodeURI(nome_estado);
+    }
+
+    function carregar() {
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function() {
+        if(this.readyState == 4 && this.status == 200) {
+            var dados = JSON.parse(this.responseText);
+            var conteudo = "<tr> <th>ID</th> <th>Nome</th> <th class='ações'>Ações</th> </tr>";
+            for(var estado of dados) {
+                conteudo += "<tr> <td>" + estado.id + "</td> <td>"+ estado.nome +"</td>";
+                conteudo += "<td> <button type='button' onclick='preencher("+ estado.id +","+ encodeURI(estado.nome) +")'>Preencher</button> ";
+                conteudo += "<button type='button' onclick='Excluir("+ estado.id +")'>Excluir</button> </td> </tr>";
+            }
+            document.getElementById("Listagem").innerHTML = conteudo;
+            limpar();
+            console.log(this.responseText);
+            console.log(dados);
+        }
+        };
+        xhttp.open("GET","/estados");
+        xhttp.send();
+    }
+
+    function limpar() {
+        document.getElementById("tx_id").value = "";
+        document.getElementById("tx_nome").value = "";
+    }
+
+    function alterar() {
+        console.log("alterar");
+        //alert("alterar estado");
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function() {
+            if(this.readyState == 4 && this.status==200) {
+                alert("Estado alterado com sucesso");
+                carregar();
+            }
+        }
+        xhttp.open("PUT", "/estado/" + document.getElementById("tx_id").value);
+        xhttp.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+        xhttp.send(JSON.stringify({id:document.getElementById("tx_id").value, nome: document.getElementById("tx_nome").value}));
+    }
+
+    function Excluir(id_estado) {
+        console.log("Excluir");
+        //alert("Excluir estado");
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function() {
+            if(this.readyState == 4 && this.status==200) {
+                alert("Estado excluido com sucesso");
+                carregar();
+            }
+        }
+        xhttp.open("DELETE", "/estado/" + id_estado);
+        xhttp.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+        xhttp.send();
+    }
+
+</script>
+
+</html>

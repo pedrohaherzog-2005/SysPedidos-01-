@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Curso ITILH</title>
+    <link rel="stylesheet" href="estilos/municipios.css">
+</head>
+<body>
+    <header>
+        <h1>Sistema de Pedidos</h1>
+    </header>
+    <nav>
+        <a href="http://localhost:8080/app/index.html">Home</a>
+        <a href="http://localhost:8080/app/Clientes.html">Clientes</a>
+        <a href="http://localhost:8080/app/Produtos.html">Produtos</a>
+        <a href="http://localhost:8080/app/estados.html">Estados</a>
+    </nav>
+    <h2>listagem de Municípios</h2>
+    <form>
+        <label>ID: </label>
+        <input type="text" id="tx_id" disabled="disabled" readonly="readonly"/>
+        <br>
+        <Label>ID_ESTADO: </Label>
+        <input type="text" id="tx_id_municipio" disabled="disabled" readonly="readonly"/>
+        <br>
+        <Label>NOME: </Label>
+        <input type="text" id="tx_nome_razao_social"/>
+        <br>
+        <Label>ENTREGA: </Label>
+        <select id="bo_ativo">
+            <option value="true">Verdade</option>
+            <option value="false">Falso</option>
+        </select>
+        <!-- <br>
+        <button type="button" onclick="criar()" class="formulario">Criar</button>
+        <button type="button" onclick="alterar()" class="formulario">Alterar</button>
+        <button type="button" onclick="limpar()" class="formulario">Limpar</button>
+        <button type="button" onclick="carregar()" class="formulario">Listar</button> -->
+    </form>
+    <br>
+    <table>
+        <tr>
+            <th>Id</th>
+            <th>Id_estado</th>
+            <th>Nome</th>
+            <th>Entrega</th>
+            <th>Ação</th>
+        </tr>
+        <tr>
+            <td>Valor 01</td>
+            <td>Valor 02</td>
+            <td>Valor 03</td>
+            <td>Valor 04</td>
+            <td>Valor Ação</td>
+        </tr>
+    </table>
+
+</body>
+</html>
