@@ -1,2 +1,2 @@
 # SysPedidos-01-
- Repositório do Projeto Java com o Sistema de Pedidos do ITILH
+Repositório do projeto de um Sistema de Pedidos do Curso de Java do ITILH
