@@ -64,9 +64,14 @@ h2 {
     /* background-color: #4a4a4a; */
     color: white;
     font-size: 23pt;
+    text-align: center;
+    margin: auto;
+    margin-top: 10px;
     padding-top: 5px;
     padding-bottom: 5px;
     text-shadow: 2px 2px 0px rgba(0, 0, 0, 0.267);
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
 }
 
 form {
@@ -75,6 +80,8 @@ form {
     /* background-color: #7b7b7b; */
     color: white;
     font-size: 15pt;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
 }
 
 form, label {
@@ -87,14 +94,9 @@ button.formulario {
     border-radius: 5px;
 }
 
-table, th {
+table, th, td {
     background-color: white;
     border: 1px solid black;
     text-align: center;
     font-size: 15pt;
-}
-
-td {
-    border: 1px solid black;
-    text-align: center;
 }
