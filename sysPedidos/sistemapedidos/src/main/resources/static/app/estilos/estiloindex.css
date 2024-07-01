@@ -57,3 +57,79 @@ nav a:hover {
       background-color: var(--cor3);
       color: var(--cor5);
 }
+
+main {
+
+      min-width: 300px;
+      max-width: 1000px;
+      margin: auto;
+      margin-bottom: 30px;
+      padding: 20px;
+      background-color: white;
+      box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.418);
+      border-bottom-left-radius: 10px;
+      border-bottom-right-radius: 10px;
+}
+
+main h1 {
+      font-family: var(--fonte-destaque);
+      color: var(--cor4);
+      font-weight: bolder;
+      font-size: 1.8em;
+      background-image: linear-gradient(to right, var(--cor1), transparent);
+      text-indent: 8px;
+}
+
+main h2 {
+      font-family: var(--fonte-destaque);
+      color: var(--cor4);
+      font-size: 1.3em;
+      font-weight: bolder;
+      background-image: linear-gradient(to right, var(--cor1), transparent);
+      text-indent: 8px;
+}
+
+main p {
+      margin: 15px 0px;
+      text-align: justify;
+      text-indent: 30px;
+      font-size: 1em;
+      line-height: 2em;
+}
+
+main strong {
+      color: var(--cor4);
+      font-weight: bold;
+}
+  
+main a {
+      text-decoration: none;
+      font-weight: bold;
+      color: var(--cor4);
+      padding: 2px 6px;
+  
+}
+  
+main a:hover {
+      text-decoration: underline;
+      color: var(--cor3);
+}
+
+footer {
+      background-color: black;
+      color: white;
+      text-align: center;
+      font-size: 0.8em;
+      padding: 5px;
+}
+  
+footer a {
+      color: white;
+      font-weight: bolder;
+      text-decoration: none;
+}
+  
+footer a:hover {
+      text-decoration: underline;
+      color: var(--cor1);
+}
